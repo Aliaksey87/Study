@@ -1,4 +1,5 @@
 import time
+import random
 from datetime import datetime
 from functools import partial
 
@@ -57,24 +58,24 @@ from functools import partial
 
 
 # Генератор
-def plus5(z):                                   # функция №1, принимает значение переменной z
-    print('Вычисляем: ' + str(z))               # печатает значение у
-    time.sleep(1)                               # звдержка во времени
-    return z + 2                                # возвращает из функции
-
-def lazy_map(fn, ls):                           # функция lazy_map, принимает fn - функция plus5 - return z + 2, ls - range(1000000)
-    for x in ls:                                # проходит по значениям из списка ls
-        y = fn(x)                               # записывает в у значение из ls под индексом х
-        yield y                                 # возвращает из функции
-
-start = datetime.now()                          # начало подсчёта времени
-generator = lazy_map(plus5, range(1000000))     # запускается generator, она же lazy_map c переменными plus5(то что вернёт эта функция return z + 2 ) и range(1000000)(генератор)
-print(next(generator))                          # запускаем фунцию generator и печатаем результат
-print(next(generator))                          # запускаем фунцию generator и печатаем результат
-print(next(generator))                          # запускаем фунцию generator и печатаем результат
-print(next(generator))                          # запускаем фунцию generator и печатаем результат
-print(next(generator))                          # запускаем фунцию generator и печатаем результат
-print("Программа выполнилась за " + str((datetime.now() - start). total_seconds()) + " секунд")
+# def plus5(z):                                   # функция №1, принимает значение переменной z
+#     print('Вычисляем: ' + str(z))               # печатает значение у
+#     time.sleep(1)                               # задержка во времени
+#     return z + 2                                # возвращает из функции
+#
+# def lazy_map(fn, ls):                           # функция lazy_map, принимает fn - функция plus5 - return z + 2, ls - range(1000000)
+#     for x in ls:                                # проходит по значениям из списка ls
+#         y = fn(x)                               # записывает в у значение из ls под индексом х
+#         yield y                                 # возвращает из функции
+#
+# start = datetime.now()                          # начало подсчёта времени
+# generator = lazy_map(plus5, range(10))           # запускается generator, она же lazy_map c переменными plus5(то что вернёт эта функция return z + 2 ) и range(1000000)(генератор от 1 до 999999)
+# print(next(generator))                          # запускаем фунцию generator и печатаем результат
+# print(next(generator))                          # запускаем фунцию generator и печатаем результат
+# print(next(generator))                          # запускаем фунцию generator и печатаем результат
+# print(next(generator))                          # запускаем фунцию generator и печатаем результат
+# print(next(generator))                          # запускаем фунцию generator и печатаем результат
+# print("Программа выполнилась за " + str((datetime.now() - start). total_seconds()) + " секунд")
 
 
 
@@ -113,10 +114,28 @@ print("Программа выполнилась за " + str((datetime.now() - 
 # Простое число - имеющее ровно два различных натуральных делителя — единицу и самого себя. Другими словами,
 # число является простым, если оно больше 1 и при этом делится без остатка только на 1 и на x
 
+def plus5(z):                                   # функция №1, принимает значение переменной z
+    print('Вычисляем число №' + str(z))         # печатает значение у
+    time.sleep(1)                               # задержка во времени
+    return z + 1                                # возвращает из функции
+
+def lazy_map(fn, ls):                           # функция lazy_map, принимает fn - функция plus5 - return z + 2, ls - range(1000000)
+    for x in ls:                                # проходит по значениям из списка ls
+        y = fn(x)                               # записывает в у значение из ls под индексом х
+        yield y                                 # возвращает из функции
+
+start = datetime.now()                          # начало подсчёта времени
+generator = lazy_map(plus5, range(10))           # запускается generator, она же lazy_map c переменными plus5(то что вернёт эта функция return z + 2 ) и range(1000000)(генератор от 1 до 999999)
+print(next(generator))                          # запускаем фунцию generator и печатаем результат
+print(next(generator))                          # запускаем фунцию generator и печатаем результат
+print(next(generator))                          # запускаем фунцию generator и печатаем результат
+print(next(generator))                          # запускаем фунцию generator и печатаем результат
+print(next(generator))                          # запускаем фунцию generator и печатаем результат
+print("Программа выполнилась за " + str((datetime.now() - start). total_seconds()) + " секунд")
 
 
-
-def ex8():
+def ex777():
+    random.randint(1, 150)
     x = int(input('Введите число: '))         # вводим число
     w = 0                                     # переменная для подсчёта
     y = x                                     # переменная для деления
@@ -128,36 +147,7 @@ def ex8():
         return 'True'
     else:
         return 'False'
-# print(ex8())
-
-# 23. Написать функцию которая принимает число и если число является простым то возвращает True иначе False.
-# Число является простым если оно делится без остатка только на себя и на 1.
-# Например число 7 является простым.
-
-# так шестёрка делится на 2. 7 не делится. 13 тоже. поэтому они простые.
-# простые это те, которые деляться ТОЛЬКО  на себя и 1. больше ни на что
-# 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43
-# def ex_23(x):
-#     w = 0
-#     y = x
-#     for x in range(1, x+1):
-#         q = y%x
-#         if q == 0:
-#             w = w + 1
-#     if w == 2:
-#         return 'True'
-#     else:
-#         return 'False'
-# print(ex_23(4))
-# проверено
-
-
-
-
-
-
-
-
+print(ex777())
 
 
 # def fn(a):
